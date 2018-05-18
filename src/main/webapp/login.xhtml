@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="pt-BR">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="Find easily a doctor and book online an appointment" />
+	<meta name="author" content="Ansonika" />
+	<title>FARMONLINE - O remédio que você precisa, do seu jeito!</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" type="image/x-icon" href="./img/apple-touch-icon-57x57-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="./img/apple-touch-icon-72x72-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="./img/apple-touch-icon-114x114-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="./img/apple-touch-icon-144x144-precomposed.png" />
+
+	<!-- BASE CSS -->
+	<link href="./css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./css/style.css" rel="stylesheet" />
+	<link href="./css/menu.css" rel="stylesheet" />
+	<link href="./css/vendors.css" rel="stylesheet" />
+	<link href="./css/app.css" rel="stylesheet" />
+	<link href="./css/icon_fonts/css/all_icons_min.css" rel="stylesheet" />
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href="./css/custom.css" rel="stylesheet" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+	
+	<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="login-2">
+					<h:form>
+					<h:messages />
+							<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
+							<h:inputHidden value="#{usuarioBean.usuario.email}" />
+							<h:inputHidden value="#{usuarioBean.usuario.senha}" />
+					
+						<div class="box_form clearfix">
+              <div>
+                <a href="home.jsf" title="Farmonline"> <img
+						src="./img/Logotipo.png" class="bloco" data-retina="true"
+						alt="Farmonline" width="220" height="64" />
+					</a>
+              </div>
+							<div class="box-login">
+								<div class="form-group">
+								<h:inputText id="eMail" value="#{usuarioBean.usuario.email}"
+											class="form-control" a:placeholder="Informe o seu e-mail..." required="true">
+											
+										</h:inputText>
+								
+								</div>
+								<div class="form-group">
+								
+								<h:inputSecret id="senha" value="#{usuarioBean.usuario.senha}"
+									class="form-control" a:placeholder="Informe a sua senha..."
+									required="true">
+
+									<a href="#0" class="forgot"><small>Esqueceu sua senha?</small></a>
+								</h:inputSecret>
+								
+								</div>
+								<div class="form-group">
+								
+									
+										<h:commandButton class="btn_1" value="Login"
+											action="#{usuarioBean.logar}" />
+								
+									
+								</div>
+							</div>
+						</div>
+					</h:form>
+					<p class="text-center link_bright">Ainda não é cadastrado? <a href="usuario.jsf"><strong>Cadastre-se agora!</strong></a></p>
+				</div>
+				<!-- /login -->
+			</div>
+		</div>
+	</main>
+	<!-- /main -->
+	
+	<footer>
+		<div class="row footer-center">
+			<div class="col-md-8">
+				<ul id="additional_links">
+					<li><a href="#0">Termos e Condições</a></li>
+					<li><a href="#0">Privacidade</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<div id="copy">© 2017 Farmonline</div>
+			</div>
+		</div>
+	</footer>
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="../cdn-cgi/scripts/84a23a00/cloudflare-static/email-decode.min.js"></script><script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/common_scripts.min.js"></script>
+	<script src="./js/functions.js"></script>
+     
+
+
+</body>
+</html>

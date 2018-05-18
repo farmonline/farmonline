@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="pt-BR">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description"
+	content="Find easily a doctor and book online an appointment" />
+<meta name="author" content="Ansonika" />
+<title>Farmonline - O remédio que você precisa, do seu jeito!</title>
+
+<!-- Favicons-->
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" type="image/x-icon"
+	href="./img/apple-touch-icon-57x57-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+	href="./img/apple-touch-icon-72x72-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+	href="./img/apple-touch-icon-114x114-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+	href="./img/apple-touch-icon-144x144-precomposed.png" />
+
+<!-- BASE CSS -->
+<link href="./css/bootstrap.min.css" rel="stylesheet" />
+<link href="./css/style.css" rel="stylesheet" />
+<link href="./css/menu.css" rel="stylesheet" />
+<link href="./css/vendors.css" rel="stylesheet" />
+<link href="./css/icon_fonts/css/all_icons_min.css" rel="stylesheet" />
+
+<!-- YOUR CUSTOM CSS -->
+<link href="./css/custom.css" rel="stylesheet" />
+<style>
+html, body {
+	height: 100%;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+	height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+
+	<header class="header_map">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 col-12">
+				<div id="logo">
+					
+					<a href="home.jsf" title="Farmonline"> <img
+						src="./img/Logotipo.png" class="bloco" data-retina="true"
+						alt="Farmonline" width="220" height="64" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container --> </header>
+	<!-- /Header -->
+
+	<div class="container-fluid full-height">
+		<div class="row row-height">
+			<div class="col-lg-5 content-left">
+				<h:form>
+					<div class="search_bar_wrapper">
+											</div>
+					
+					<!-- /filters -->
+				</h:form>
+
+				<!-- Lista de Medicamento / Farmácias -->
+
+
+				<ui:repeat value="#{usuarioBean.lista}" var="usuario">
+					<div class="strip_list">
+						<figure> <a href="#"><img
+							src="http://www.ictq.com.br/images/varejo_farmaceutico/aplicativo-persegue-cada-passo-do-consumidor-dentro-da-farmacia-farmacia-farmaceutico-farmaceutica-ictq.jpg"
+							alt="" /></a> </figure>
+						<h3>#{usuario.nome}</h3>
+						<p><a href="mailto:#{usuario.email}">#{usuario.email}</a></p>
+						<ul>
+						
+						</ul>
+					</div>
+				</ui:repeat>
+
+
+				<!-- /strip_list_map -->
+
+				<p class="text-center add_top_30">
+					<a href="#0"><strong>Carregar mais...</strong></a>
+				</p>
+			</div>
+			<!-- /content-left-->
+
+			<div class="col-lg-7 map-right">
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+				<h:form>
+		<h:messages />
+		
+		<h:dataTable value="#{usuarioBean.lista}" var="usuario" rules="rows"
+			cellpadding="5">
+			<f:facet name="caption">
+				
+			</f:facet>
+			<f:facet name="header">Listagem de Usuários</f:facet>
+			<f:facet name="footer">Final da listagem</f:facet>
+			<h:column>
+				<h:commandLink action="#{usuarioBean.ativar}">
+					<h:graphicImage library="imagens"
+						name="usuario_ativo_#{usuario.ativo}.png" style="border:0" />
+					<f:setPropertyActionListener value="#{usuario}"
+						target="#{usuarioBean.usuario}"></f:setPropertyActionListener>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{usuario.codigo}		
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{usuario.nome}
+			</h:column>
+			<h:column>
+				<f:facet name="header">e-Mail</f:facet>
+				<a href="mailto:#{usuario.email}">#{usuario.email}</a>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Permissões</f:facet>
+				<h:commandLink
+					action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_ADMINISTRADOR')}"
+					title="Permissão Administrador">
+					<h:graphicImage library="imagens"
+						name="ROLE_ADMINISTRADOR_#{usuario.permissao.contains('ROLE_ADMINISTRADOR')}.png"
+						style="border:0" />
+				</h:commandLink>
+				<h:commandLink
+					action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_USUARIO_VIP')}"
+					title="Permissão Usuário VIP">
+					<h:graphicImage library="imagens"
+						name="ROLE_USUARIO_VIP_#{usuario.permissao.contains('ROLE_USUARIO_VIP')}.png"
+						style="border:0" />
+				</h:commandLink>
+			</h:column>
+			
+			<h:column>
+				<h:commandLink action="#{usuarioBean.excluir}"
+					onclick="if (!confirm('Confirma a excluisão do usuário #{usuario.nome}?')) return false;">
+					<h:graphicImage library="imagens" name="excluir16.png"></h:graphicImage>
+					<f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{usuario}"/>
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+
+</h:form>
+			</div>
+			<!-- /map-right-->
+
+		</div>
+		<!-- /row-->
+	</div>
+	<!-- /container-fluid -->
+
+
+	<!-- COMMON SCRIPTS -->
+   <script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/common_scripts.min.js"></script>
+	<script src="./assets/validate.js"></script>
+	<script src="./js/functions.js"></script>
+
+	<!-- SPECIFIC SCRIPTS -->
+	
+
+
+</body>
+
+</html>

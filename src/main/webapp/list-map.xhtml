@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" lang="pt-BR">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description"
+	content="Find easily a doctor and book online an appointment" />
+<meta name="author" content="Ansonika" />
+<title>Farmonline - O remédio que você precisa, do seu jeito!</title>
+
+<!-- Favicons-->
+<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" type="image/x-icon"
+	href="./img/apple-touch-icon-57x57-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+	href="./img/apple-touch-icon-72x72-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+	href="./img/apple-touch-icon-114x114-precomposed.png" />
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+	href="./img/apple-touch-icon-144x144-precomposed.png" />
+
+<!-- BASE CSS -->
+<link href="./css/bootstrap.min.css" rel="stylesheet" />
+<link href="./css/style.css" rel="stylesheet" />
+<link href="./css/menu.css" rel="stylesheet" />
+<link href="./css/vendors.css" rel="stylesheet" />
+<link href="./css/icon_fonts/css/all_icons_min.css" rel="stylesheet" />
+
+<!-- YOUR CUSTOM CSS -->
+<link href="./css/custom.css" rel="stylesheet" />
+<style>
+html, body {
+	height: 100%;
+}
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+	height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+
+	<header class="header_map">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 col-12">
+				<div id="logo">
+					<a href="home.jsf" title="Farmonline"> <img
+						src="./img/Logotipo.png" class="bloco" data-retina="true"
+						alt="Farmonline" width="220" height="64" />
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container --> </header>
+	<!-- /Header -->
+
+	<div class="container-fluid full-height">
+		<div class="row row-height">
+			<div class="col-lg-5 content-left">
+				<h:form>
+					<div class="search_bar_wrapper">
+						<div class="search_bar_list">
+							<h:inputText id="eMail" value="#{buscaMapaBean.address}"
+								class="form-control" a:placeholder="Ex: Drogasil, Amoxilina..."
+								required="true">
+
+							</h:inputText>
+							<h:commandButton class="btn_1" value="Procurar"
+								action="#{buscaMapaBean.SearchGeolocation}" 
+								onclick="RefreshMap()"/>
+
+
+						</div>
+					</div>
+					<div class="filters_listing map_listing">
+						<ul class="clearfix">
+							<li>
+								<h6>Pesquisar</h6>
+								<div class="switch-field">
+								<input type="radio" id="farmacias" name="type_patient"
+										value="clinics" checked="" /> <label for="clinics">Farmácias</label>
+								</div>
+							</li>
+							<li>
+								<h6>Ordenar por</h6> <select name="orderby" class="selectbox">
+									<option value="Closest" />Distância
+									<option value="Best rated" />Avaliação
+							</select>
+							</li>
+						</ul>
+					</div>
+					<!-- /filters -->
+				</h:form>
+
+				<!-- Lista de Medicamento / Farmácias -->
+
+
+				<ui:repeat value="#{buscaMapaBean.farmalist}" var="item">
+					<div class="strip_list">
+						<figure> <a href="#"><img
+							src="http://www.ictq.com.br/images/varejo_farmaceutico/aplicativo-persegue-cada-passo-do-consumidor-dentro-da-farmacia-farmacia-farmaceutico-farmaceutica-ictq.jpg"
+							alt="" /></a> </figure>
+						<h3>#{item.nomeEstabelecimento}</h3>
+						<p>Endereco: #{item.endereco}</p>
+						<ul>
+						<li><a href="#">Locais próximos</a></li>
+							<li><a href="#">Ver no mapa</a></li>
+						</ul>
+					</div>
+				</ui:repeat>
+
+
+
+				<!-- /strip_list_map -->
+
+				<p class="text-center add_top_30">
+					<a href="#0"><strong>Carregar mais...</strong></a>
+				</p>
+		
+			</div>
+			<!-- /content-left-->
+
+			<div class="col-lg-7 map-right">
+	
+					<div id="map"></div>		
+					<input type="hidden" name="latitude" id="latitude"></input>
+					<input type="hidden" name="latitudeserver" id= "latitudeserver" value="#{buscaMapaBean.latitudeServer}" ></input>
+					<input type="hidden" name="longitude" id="longitude"></input>
+					<input type="hidden" name="longitudeserver" id= "longitudeserver" value="#{buscaMapaBean.longitudeServer}"></input>
+
+		
+				<!-- map-->
+			</div>
+			<!-- /map-right-->
+
+		</div>
+			
+		<!-- /row-->
+	</div>
+	<!-- /container-fluid -->
+
+
+	<!-- COMMON SCRIPTS -->
+   <script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/common_scripts.min.js"></script>
+	<script src="./assets/validate.js"></script>
+	<script src="./js/functions.js"></script>
+
+	<!-- SPECIFIC SCRIPTS -->
+	
+
+	<script src="../js/mapa.js"></script>
+	
+	<script type="text/javascript">
+		$(".selectbox").selectbox(); // This example requires the Places library. Include the libraries=places
+		// parameter when you first load the API. For example:
+		debugger;	
+	  	</script>
+
+
+</body>
+
+</html>

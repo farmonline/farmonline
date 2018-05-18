@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="pt-BR">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description"
+		content="Find easily a doctor and book online an appointment" />
+	<meta name="author" content="Ansonika" />
+	<title>Farmonline - O remédio que você precisa, do seu jeito!</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" type="image/x-icon"
+		href="./img/apple-touch-icon-57x57-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+		href="./img/apple-touch-icon-72x72-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+		href="./img/apple-touch-icon-114x114-precomposed.png" />
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+		href="./img/apple-touch-icon-144x144-precomposed.png" />
+
+	<!-- BASE CSS -->
+	<link href="./css/bootstrap.min.css" rel="stylesheet" />
+	<link href="./css/style.css" rel="stylesheet" />
+	<link href="./css/menu.css" rel="stylesheet" />
+	<link href="./css/vendors.css" rel="stylesheet" />
+	<link href="./css/icon_fonts/css/all_icons_min.css" rel="stylesheet" />
+
+	<!-- YOUR CUSTOM CSS -->
+	<link href="./css/custom.css" rel="stylesheet" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</h:head>
+
+<h:body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+
+	<header class="header_sticky">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-6">
+				<div id="logo_home">
+					<img src="img/Logotipo.png" alt="Farmonline" class="bloco" />
+				</div>
+			</div>
+			<nav class="col-lg-9 col-6 centro"> <a
+				class="cmn-toggle-switch cmn-toggle-switch__htx open_close"
+				href="#0"><span>Menu mobile</span></a>
+			<ul id="top_access">
+				<h:form>
+				
+				<p:growl id="growl" life="2000" />
+						
+					<li>
+						<a href="login.jsf"><i class="pe-7s-user"/></a>
+					</li>
+					<li>
+						<a href="usuario.jsf"><i class="pe-7s-add-user"/></a>
+					</li>
+					
+									
+					
+					
+				</h:form>
+			</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- /container --> </header>
+	<!-- /header -->
+	<!-- /header -->
+
+	<main>
+	<div class="hero_home version_1">
+		<div class="content">
+			<h3>Farmonline</h3>
+			<p>O remédio que você precisa, do seu jeito!</p>
+			<h:form method="post" action="list.html">
+				<div id="custom-search-input">
+					<div class="input-group">
+						<input type="text" class=" search-query"
+							placeholder="Ex: Amoxilina, Ultrafarma..." /> <input
+							type="submit" class="btn_search" value="Procurar" />
+					</div>
+					<ul>
+						<li><input type="radio" id="all" name="radio_search"
+							value="all" checked="" /> <h:outputLabel for="all" value="Todos" />
+						</li>
+						<li><input type="radio" id="doctor" name="radio_search"
+							value="doctor" /> <h:outputLabel for="doctor"
+								value="Medicamento" /></li>
+						<li><input type="radio" id="clinic" name="radio_search"
+							value="clinic" /> <h:outputLabel for="clinic" vlaue="Farmácias" />
+						</li>
+					</ul>
+				</div>
+			</h:form>
+		</div>
+	</div>
+	<!-- /Hero -->
+
+	<div class="container margin_120_95">
+		<div class="main_title">
+			<h2>
+				Encontre o <strong>remédio</strong> que você precisa, <strong>perto
+					de você</strong>.
+			</h2>
+			<p>
+				Precisa de um remédio? Com a <strong>Farmonline</strong>, você pode
+				procurar um medicamento ou uma farmácia próxima. De h:forma <strong>simples</strong>,
+				<strong>rápida</strong> e <strong>fácil</strong>.
+			</p>
+		</div>
+		<div class="row add_bottom_30">
+			<div class="col-lg-4">
+				<div class="box_feat" id="icon_2">
+					<span></span>
+					<h3>Pesquise</h3>
+					<p>Inh:forme o medicamento ou a farmácia que você procura.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="box_feat" id="icon_3">
+					<span></span>
+					<h3>Localize</h3>
+					<p>Nós localizamos os melhores preços, perto de você.</p>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="box_feat" id="icon_1">
+					<h3>Visite</h3>
+					<p>Compareça à farmácia e compre o remédio que você precisa.</p>
+				</div>
+			</div>
+		</div>
+		<!-- /row -->
+		<p class="text-center">
+			<a href="./list-map.html" class="btn_1 medium">Pesquisar</a>
+		</p>
+
+	</div>
+	<!-- /container -->
+
+	<div class="bg_color_1">
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>As maiores redes de farmácias e drogarias</h2>
+				<p>
+					Utilizamos as maiores redes de farmácias e drogarias, para garantir
+					a <strong>qualidade do serviço</strong> e o <strong>melhor
+						preço</strong> do seu medicamento.
+				</p>
+			</div>
+			<div id="reccomended" class="owl-carousel owl-theme">
+				<div class="item">
+					<a href="#">
+						<div class="title">
+							<h4>Ultrafarma</h4>
+						</div> <img src="./img/redes/ultrafarma.png" alt="Ultrafarma" />
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<div class="title">
+							<h4>Drogaria SP</h4>
+						</div> <img src="./img/redes/drogariasp.png" alt="Drogaria SP" />
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<div class="title">
+							<h4>Pacheco</h4>
+						</div> <img src="./img/redes/pacheco.png" alt="Pacheco Drogaria" />
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<div class="title">
+							<h4>Onofre</h4>
+						</div> <img src="./img/redes/onofre.png" alt="Onofre Drogaria" />
+					</a>
+				</div>
+				<div class="item">
+					<a href="#">
+						<div class="title">
+							<h4>Drogasil</h4>
+						</div> <img src="./img/redes/drogasil.png" alt="Drogasil" />
+					</a>
+				</div>
+			</div>
+			<!-- /carousel -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /white_bg -->
+
+	<div class="container margin_120_95">
+		<div class="main_title">
+			<h2>Localize postos e hospitais</h2>
+			<p>
+				Encontre as <strong>Unidades de Atendimento</strong>, <strong>Centros
+					Médicos</strong> e <strong>Hospitais</strong> próximos.
+			</p>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-xl-4 col-lg-5 col-md-6">
+				<div class="list_home">
+					<div class="list_title">
+						<i class="icon_pin_alt"></i>
+						<h3>Pesquisa por cidade</h3>
+					</div>
+					<ul>
+						<li><a href="#0">São Paulo</a></li>
+						<li><a href="#0">Rio de Janeiro</a></li>
+						<li><a href="#0">Minas Gerais</a></li>
+						<li><a href="#0">Espiríto Santo</a></li>
+						<li><a href="#0">Rio Grande do Sul</a></li>
+						<li><a href="#0">Santa Catarina</a></li>
+						<li><a href="#0">Paaraná</a></li>
+						<li><a href="#0">Bahia</a></li>
+						<li><a href="#0">Outros...</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-5 col-md-6">
+				<div class="list_home">
+					<div class="list_title">
+						<i class="icon_archive_alt"></i>
+						<h3>Pesquisa por Especialidade</h3>
+					</div>
+					<ul>
+						<li><a href="#0">Cardiologista</a></li>
+						<li><a href="#0">Dermatologista</a></li>
+						<li><a href="#0">Fisioterapeuta</a></li>
+						<li><a href="#0">Nutricionista</a></li>
+						<li><a href="#0">Oftalmologista</a></li>
+						<li><a href="#0">Oncologista</a></li>
+						<li><a href="#0">Ortopedista</a></li>
+						<li><a href="#0">Pediatra</a></li>
+						<li><a href="#0">Outros...</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+
+	<div id="app_section">
+		<div class="container">
+			<div class="row justify-content-around">
+				<div class="col-xl-8 col-lg-8 col-md-12 bloco">
+					<p class="text-citacao">
+						"Temos o compromisso de localizar o melhor preço para o
+						medicamento solicitado, garantindo assim a satisfação do nosso
+						usuário."&nbsp;&nbsp;-&nbsp;&nbsp;<span class="citacao-color">Farmonline</span>
+					</p>
+					<div class="bloco margin-low">
+						<p class="text-center">
+							<a href="./contacts.html" class="btn_1 medium">Fale Conosco</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /app_section --> </main>
+	<!-- /main content -->
+
+	<footer>
+	<div class="container margin_60_35">
+		<div class="row">
+			<div class="col-lg-3 col-md-12">
+				<p>
+					<a href="index.html" title="Findoctor"> <img
+						src="./img/logotipo-footer.png" data-retina="true"
+						alt="Farmonline" class="img-fluid" />
+					</a>
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-4">
+				<h5>Farmonline</h5>
+				<ul class="links">
+					<li><a href="./contacts.html">Fale Conosco</a></li>
+					<li><a href="./login.html">Login</a></li>
+					<li><a href="./register.html">Cadastro</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3 col-md-4">
+				<h5>Links Úteis</h5>
+				<ul class="links">
+					<li><a href="#0">Lista de Medicamentos</a></li>
+					<li><a href="#0">Lista de Farmácias</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3 col-md-4">
+				<div class="follow_us">
+					<h5>Redes Sociais</h5>
+					<ul>
+						<li><a href="#0"><i class="social_facebook"></i></a></li>
+						<li><a href="#0"><i class="social_twitter"></i></a></li>
+						<li><a href="#0"><i class="social_instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--/row-->
+		<hr />
+		<div class="row">
+			<div class="col-md-8">
+				<ul id="additional_links">
+					<li><a href="#0">Termos e Condições</a></li>
+					<li><a href="#0">Privacidade</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<div id="copy">© 2018 Farmonline</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script
+		src="../cdn-cgi/scripts/84a23a00/cloudflare-static/email-decode.min.js"></script>
+	<script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/common_scripts.min.js"></script>
+	<script src="./js/functions.js"></script>
+
+</h:body>
+
+</html>

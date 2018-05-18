@@ -1,0 +1,65 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+.content-left {
+  height: 100%;
+  min-height: 100%;
+  overflow-y: scroll;
+  padding-top: 85px;
+  background-color: #F5F8FA;
+}
+
+.bloco {
+  display: block;
+}
+
+.espaco {
+  margin-bottom: 20px;
+}
+
+.container-fluid img {
+  margin: 0 auto;
+}
+
+@media (max-width: 767px)
+  .strip-list {
+    padding: 20px 15px 35px 90px;
+}
+
+.container img {
+  margin: 0 auto;
+}
+
+.box-login {
+  padding: 20px 30px;
+}
+
+.bg_color_2 {
+  background: url(../img/hero_bg_1.svg) fixed #3E3C7D;
+}
+
+.footer-center {
+  margin-top: 28px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.centro {
+  margin-top: 14px;
+}
+
+.citacao-color {
+  color: #E74E84;
+}
+
+.text-citacao {
+  text-align: center;
+  font-size: 24px;
+}
+
+.margin-low {
+  margin-bottom: -20px;
+}
