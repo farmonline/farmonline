@@ -141,7 +141,7 @@ public class UsuarioBean implements Serializable {
 
 	public String salvar() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		UsuarioRN usuarioRN = new UsuarioRN();
+		UsuarioRN rn = new UsuarioRN();
 		String senha = this.usuario.getSenha();
 		if (!senha.equals(this.confirmarSenha)) {
 			this.destinoSalvar = null;
@@ -151,17 +151,17 @@ public class UsuarioBean implements Serializable {
 		} else {
  
 			if (this.usuario.getPermissao().contains("ROLE_ADMINISTRADOR")|| this.usuario.getPermissao().contains("ROLE_USUARIO")) {
-				this.destinoSalvar = "/home";
+				this.destinoSalvar = "home";
+				rn.salvar(this.usuario);
 			} else {
 				
 				this.usuario.getPermissao().add("ROLE_USUARIO");
 				this.destinoSalvar = "home";
 				
-				
+				rn.salvar(this.usuario);
 			}
 			
-			usuarioRN.salvar(this.usuario);
-			
+		
 		}
 		
 		return this.destinoSalvar;
@@ -281,12 +281,12 @@ public class UsuarioBean implements Serializable {
 		java.util.Set<String> permissoes = this.usuario.getPermissao();
 		if (permissoes.contains(permissao)) {
 			permissoes.remove(permissao);
-			
+			rn.salvar(this.usuario);
 		} else {
 			permissoes.add(permissao);
-			
+			rn.salvar(this.usuario);
 		}
-		rn.salvar(this.usuario);
+		
 		return null;
 	}
 

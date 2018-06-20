@@ -90,8 +90,8 @@ html, body {
 
 							</h:inputText>
 							<h:commandButton class="btn_1" value="Procurar"
-								action="#{buscaMapaBean.SearchGeolocation}" 
-								onclick="RefreshMap()"/>
+								action="#{buscaMapaBean.SearchGeolocation}"
+								onclick="RefreshMap()" />
 
 
 						</div>
@@ -101,7 +101,7 @@ html, body {
 							<li>
 								<h6>Pesquisar</h6>
 								<div class="switch-field">
-								<input type="radio" id="farmacias" name="type_patient"
+									<input type="radio" id="farmacias" name="type_patient"
 										value="clinics" checked="" /> <label for="clinics">Farmácias</label>
 								</div>
 							</li>
@@ -127,7 +127,7 @@ html, body {
 						<h3>#{item.nomeEstabelecimento}</h3>
 						<p>Endereco: #{item.endereco}</p>
 						<ul>
-						<li><a href="#">Locais próximos</a></li>
+							<li><a href="#">Locais próximos</a></li>
 							<li><a href="#">Ver no mapa</a></li>
 						</ul>
 					</div>
@@ -140,46 +140,50 @@ html, body {
 				<p class="text-center add_top_30">
 					<a href="#0"><strong>Carregar mais...</strong></a>
 				</p>
-		
+
 			</div>
 			<!-- /content-left-->
 
 			<div class="col-lg-7 map-right">
-	
-					<div id="map"></div>		
-					<input type="hidden" name="latitude" id="latitude"></input>
-					<input type="hidden" name="latitudeserver" id= "latitudeserver" value="#{buscaMapaBean.latitudeServer}" ></input>
-					<input type="hidden" name="longitude" id="longitude"></input>
-					<input type="hidden" name="longitudeserver" id= "longitudeserver" value="#{buscaMapaBean.longitudeServer}"></input>
 
-		
+				<div id="map"></div>
+				<input type="hidden" name="latitude" id="latitude"></input> <input
+					type="hidden" name="latitudeserver" id="latitudeserver"
+					value="#{buscaMapaBean.latitudeServer}"></input> <input
+					type="hidden" name="longitude" id="longitude"></input> <input
+					type="hidden" name="longitudeserver" id="longitudeserver"
+					value="#{buscaMapaBean.longitudeServer}"></input>
+				
+					<!-- COMMON SCRIPTS -->
+	
+
 				<!-- map-->
 			</div>
 			<!-- /map-right-->
 
 		</div>
-			
+
 		<!-- /row-->
 	</div>
 	<!-- /container-fluid -->
 
 
 	<!-- COMMON SCRIPTS -->
-   <script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/jquery-2.2.4.min.js"></script>
 	<script src="./js/common_scripts.min.js"></script>
 	<script src="./assets/validate.js"></script>
 	<script src="./js/functions.js"></script>
-
+	<script src="./js/mapa.js"></script>
 	<!-- SPECIFIC SCRIPTS -->
-	
 
-	<script src="../js/mapa.js"></script>
-	
+
+
 	<script type="text/javascript">
 		$(".selectbox").selectbox(); // This example requires the Places library. Include the libraries=places
 		// parameter when you first load the API. For example:
-		debugger;	
-	  	</script>
+		debugger;
+	</script>
+
 
 
 </body>

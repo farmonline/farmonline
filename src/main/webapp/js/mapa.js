@@ -24,14 +24,14 @@ outputlngserver = document.getElementById('longitudeserver');
 
 
 $(window).load(function(){	
-	 outputlat = document.getElementById('latitude');
-	 outputlng = document.getElementById('longitude');
+	outputlat = document.getElementById('latitude');
+	outputlng = document.getElementById('longitude');
 	 
-	 if (navigator.geolocation) {
+	if (navigator.geolocation) {
 	        navigator.geolocation.getCurrentPosition(showPosition);
 	    } 
 	 
-	 function showPosition(position) {
+	function showPosition(position) {
 
 		    //retorno a latitude e longitude no load da pagina
 		    //a partir da sua localização atual
@@ -51,7 +51,7 @@ $(window).load(function(){
 //função chamada pelo server autilizando a geolocalização pelo endereço digitado
 function RefreshMap()
 {		
-   alert('PRESSIONE ENTER');
+   
 	
 	var latserver =  Number(outputlatserver.value);    
     var lngserver =  Number(outputlngserver.value);      
@@ -61,7 +61,7 @@ function RefreshMap()
 		lngserver 
 	};
 	
-	 var request = {
+	var request = {
 			    location: pyrmont,
 			    radius: '500',
 			    query: 'farmacia'
@@ -88,7 +88,7 @@ function initMap()
 		lng 
 	};
 	
-	 var request = {
+	var request = {
 			    location: pyrmont,
 			    radius: '500',
 			    query: 'farmacia'

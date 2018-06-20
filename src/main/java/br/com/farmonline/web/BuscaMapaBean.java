@@ -3,33 +3,27 @@ package br.com.farmonline.web;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.bean.SessionScoped;
+import javax.faces.view.ViewScoped;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import org.primefaces.PrimeFaces;
-import org.primefaces.PrimeFaces.Ajax;
 import org.primefaces.context.RequestContext;
 
-import se.walkercrou.places.*;
-import br.com.farmonline.mapa.*;
+import br.com.farmonline.mapa.MapLocationPharma;
+import se.walkercrou.places.Place;
 
 
-@RequestScoped
+@ViewScoped
 @ManagedBean(name = "buscaMapaBean")
 
 public class BuscaMapaBean {
